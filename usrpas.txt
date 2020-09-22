@@ -1,0 +1,2 @@
+MicrosoftAppId=b57ddbaa-c650-4674-a889-e4d1ad006a80
+MicrosoftAppPassword=AtLeastSixteenCharacters_0

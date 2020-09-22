@@ -893,7 +893,7 @@ class RootDialog extends ComponentDialog {
         },
       ])
     );
-    this.initialDialogId = "begin";
+    this.initialDialogId = "HR";
   }
 
   async run(context, accessor) {

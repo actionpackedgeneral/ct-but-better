@@ -24,7 +24,7 @@ HRMenuChoiceArray = [
 class HRDialog extends ComponentDialog {
   constructor(dialogId) {
     super(dialogId);
-    this.initialDialogId = "HRMenuHandler";
+    this.initialDialogId = "CU";
     this.addDialog(new LMDialog("LM"));
     this.addDialog(new PayrollDialog("Pa"));
     this.addDialog(new CreateUserDialog("CU"));
