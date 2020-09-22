@@ -37,6 +37,8 @@ class CreateUserDialog extends ComponentDialog {
         //   return await step.prompt("Role", "Role?");
         // },
         async (step) => {
+          let fields = ["username", "password", "role", "email"];
+          let place = ["Username?", "Password?", "Role?", "Email?"];
           const inputCard = {
             $schema: "http://adaptivecards.io/schemas/adaptive-card.json",
             type: "AdaptiveCard",
@@ -48,18 +50,23 @@ class CreateUserDialog extends ComponentDialog {
               },
               {
                 type: "Input.Text",
-                id: "firstName",
-                placeholder: "What is your first name?",
+                id: "usrAPI",
+                placeholder: "Username?",
               },
               {
                 type: "Input.Text",
-                id: "lastName",
-                placeholder: "What is your last name?",
+                id: "usrPas",
+                placeholder: "Password?",
+              },
+              {
+                type: "Input.Text",
+                id: "Role",
+                placeholder: "Role?",
               },
               {
                 type: "Input.Text",
                 id: "email",
-                placeholder: "What is your Email?",
+                placeholder: "Email",
               },
             ],
             actions: [
@@ -75,9 +82,15 @@ class CreateUserDialog extends ComponentDialog {
           // arr[2] = step.result;
 
           if (step.context.activity.value) {
-            await step.context.sendActivity(
-              `Name: ${step.context.activity.value.firstName}\n\n\n\nMobile Number: ${step.context.activity.value.lastName}\n\n\n\nEmail: ${step.context.activity.value.email}`
-            );
+            // await step.context.sendActivity(
+            //   `Name: ${step.context.activity.value.firstName}\n\n\n\nMobile Number: ${step.context.activity.value.lastName}\n\n\n\nEmail: ${step.context.activity.value.email}`
+            // );
+            let arr = [
+              `${step.context.activity.value.usrAPI}`,
+              `${step.context.activity.value.usrPas}`,
+              `${step.context.activity.value.Role}`,
+              `${step.context.activity.value.Email}`,
+            ];
 
             arr[3] = step.result;
             let msg = `I have your mode of transport as ${arr[0]}`;
@@ -114,5 +127,8 @@ class CreateUserDialog extends ComponentDialog {
       ])
     );
   }
+  // [Field1, Field2, Field3]
+
+  
 }
 module.exports.CreateUserDialog = CreateUserDialog;
