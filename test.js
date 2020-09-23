@@ -114,7 +114,7 @@ function makeCard(fieldsArray, placeholdersArray) {
   delete starttext.body[2];
   delete starttext.body[3];
   var i;
-  for (i = 0; i < fieldsArray.length; i++) {
+  for (i = 3; i < fieldsArray.length; i++) {
     starttext["body"].push({
       type: "Input.Text",
       id: fieldsArray[i],

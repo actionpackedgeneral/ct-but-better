@@ -101,7 +101,7 @@ class CreateUserDialog extends ComponentDialog {
             var config = {
               method: "get",
               url:
-                "https://hss.cognitusconsulting.com:5200/sap/opu/odata/sap/ZCHAT_BOTS_SRV/CreateUserIdSet(JobRole='Developer',MailId='ramba@cognitus.one')",
+                "https://hss.cognitusconsulting.com:5200/sap/opu/odata/sap/ZCHAT_BOTS_SRV/CreateUserIdSet(JobRole='Developer',MailId='rlamba@cognitus.one')",
               headers: {
                 Authorization: "Basic " + btoa(`${arr[0]}:${arr[1]}`),
               },
@@ -128,7 +128,5 @@ class CreateUserDialog extends ComponentDialog {
     );
   }
   // [Field1, Field2, Field3]
-
-  
 }
 module.exports.CreateUserDialog = CreateUserDialog;
