@@ -9,7 +9,7 @@ const {
   ChoiceFactory,
   ListStyle,
 } = require("botbuilder-dialogs");
-
+var mc = (rmc = require("../test"));
 const { FormPrompt } = require("./formPrompt");
 class CreateUserDialog extends ComponentDialog {
   constructor(dialogId) {
@@ -39,46 +39,47 @@ class CreateUserDialog extends ComponentDialog {
         async (step) => {
           let fields = ["username", "password", "role", "email"];
           let place = ["Username?", "Password?", "Role?", "Email?"];
-          const inputCard = {
-            $schema: "http://adaptivecards.io/schemas/adaptive-card.json",
-            type: "AdaptiveCard",
-            version: "1.0",
-            body: [
-              {
-                type: "TextBlock",
-                text: "Please enter your details",
-              },
-              {
-                type: "Input.Text",
-                id: "usrAPI",
-                placeholder: "Username?",
-              },
-              {
-                type: "Input.Text",
-                id: "usrPas",
-                placeholder: "Password?",
-              },
-              {
-                type: "Input.Text",
-                id: "Role",
-                placeholder: "Role?",
-              },
-              {
-                type: "Input.Text",
-                id: "email",
-                placeholder: "Email",
-              },
-            ],
-            actions: [
-              {
-                type: "Action.Submit",
-                title: "Submit",
-                data: {
-                  x: 13,
-                },
-              },
-            ],
-          };
+          const inputCard = mc(fields, place);
+          // const inputCard = {
+          //   $schema: "http://adaptivecards.io/schemas/adaptive-card.json",
+          //   type: "AdaptiveCard",
+          //   version: "1.0",
+          //   body: [
+          //     {
+          //       type: "TextBlock",
+          //       text: "Please enter your details",
+          //     },
+          //     {
+          //       type: "Input.Text",
+          //       id: "usrAPI",
+          //       placeholder: "Username?",
+          //     },
+          //     {
+          //       type: "Input.Text",
+          //       id: "usrPas",
+          //       placeholder: "Password?",
+          //     },
+          //     {
+          //       type: "Input.Text",
+          //       id: "Role",
+          //       placeholder: "Role?",
+          //     },
+          //     {
+          //       type: "Input.Text",
+          //       id: "email",
+          //       placeholder: "Email",
+          //     },
+          //   ],
+          //   actions: [
+          //     {
+          //       type: "Action.Submit",
+          //       title: "Submit",
+          //       data: {
+          //         x: 13,
+          //       },
+          //     },
+          //   ],
+          // };
           // arr[2] = step.result;
 
           if (step.context.activity.value) {
